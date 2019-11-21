@@ -9,7 +9,7 @@ int main()
     std::vector<unsigned int> buffer;
     unsigned int cashSizeMin = 256, cashSizeMax = 6144;
     unsigned int power = 0;
-    while(pow(2, power) <= cashSizeMin)
+    while(pow(2, power) < cashSizeMin)
     {
         ++power;
     }
@@ -27,19 +27,38 @@ int main()
         backward.push_back(experiment::backwardExperiment(buffer[i]));
         random.push_back(experiment::randomExperiment(buffer[i]));
     }
+    std::cout << "investigaiton\n";
+    std::cout << "\ttravel_variant: forward\n";
     for(unsigned int i = 0; i < buffer.size(); ++i)
     {
-        std::cout << forward[i] << std::endl;
+        std::cout << "\t- experiment:\n";
+        std::cout << "\t\tnumber: " << i + 1 << std::endl;
+        std::cout << "\t\tinput_data\n";
+        std::cout << "\t\t\tbuffer_size: " << buffer[i] << std::endl;
+        std::cout << "\t\tduration: " << forward[i] << std::endl;
+        //std::cout << forward[i] << std::endl;
     }
     std::cout << std::endl << std::endl;
+    std::cout << "investigaiton\n";
+    std::cout << "\ttravel_variant: backward\n";
     for(unsigned int i = 0; i < buffer.size(); ++i)
     {
-        std::cout << backward[i] << std::endl;
+        std::cout << "\t- experiment:\n";
+        std::cout << "\t\tnumber: " << i + 1 << std::endl;
+        std::cout << "\t\tinput_data\n";
+        std::cout << "\t\t\tbuffer_size: " << buffer[i] << std::endl;
+        std::cout << "\t\tduration: " << backward[i] << std::endl;
     }
     std::cout << std::endl << std::endl;
+    std::cout << "investigaiton\n";
+    std::cout << "\ttravel_variant: random\n";
     for(unsigned int i = 0; i < buffer.size(); ++i)
     {
-        std::cout << random[i] << std::endl;
+        std::cout << "\t- experiment:\n";
+        std::cout << "\t\tnumber: " << i + 1 << std::endl;
+        std::cout << "\t\tinput_data\n";
+        std::cout << "\t\t\tbuffer_size: " << buffer[i] << std::endl;
+        std::cout << "\t\tduration: " << random[i] << std::endl;
     }
     std::cout << std::endl << std::endl;
 }
